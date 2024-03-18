@@ -24,6 +24,7 @@ import LoadingIcon from "../icons/three-dots.svg";
 import ChatGptIcon from "../icons/chatgpt.png";
 import ShareIcon from "../icons/share.svg";
 import BotIcon from "../icons/bot.png";
+import SolIcon from "../icons/sol.svg";
 
 import DownloadIcon from "../icons/download.svg";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -535,12 +536,7 @@ export function ImagePreviewer(props: {
       >
         <div className={styles["chat-info"]}>
           <div className={styles["logo"] + " no-dark"}>
-            <NextImage
-              src={ChatGptIcon.src}
-              alt="logo"
-              width={50}
-              height={50}
-            />
+            <NextImage src={SolIcon.src} alt="logo" width={50} height={50} />
           </div>
 
           <div>
