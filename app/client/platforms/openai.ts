@@ -192,6 +192,12 @@ export class ChatGPTApi implements LLMApi {
               return finish();
             }
 
+            if (contentType?.startsWith("application/json")) {
+              const resJson = await res.clone().json();
+              responseText = resJson.choices?.at(0)?.message?.content ?? "";
+              return finish();
+            }
+
             if (
               !res.ok ||
               !res.headers
@@ -227,14 +233,14 @@ export class ChatGPTApi implements LLMApi {
             try {
               const json = JSON.parse(text) as {
                 choices: Array<{
-                  delta: {
+                  message: {
                     content: string;
                   };
                 }>;
               };
-              const delta = json.choices[0]?.delta?.content;
-              if (delta) {
-                remainText += delta;
+              const message = json.choices[0]?.message?.content;
+              if (message) {
+                remainText += message;
               }
             } catch (e) {
               console.error("[Request] parse error", text);
