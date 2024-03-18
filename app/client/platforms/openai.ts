@@ -187,11 +187,14 @@ export class ChatGPTApi implements LLMApi {
               contentType,
             );
 
-            if (
-              contentType?.startsWith("text/plain") ||
-              contentType?.startsWith("application/json")
-            ) {
+            if (contentType?.startsWith("text/plain")) {
               responseText = await res.clone().text();
+              return finish();
+            }
+
+            if (contentType?.startsWith("application/json")) {
+              const resJson = await res.clone().json();
+              responseText = resJson.choices?.at(0)?.message?.content ?? "";
               return finish();
             }
 
