@@ -158,7 +158,7 @@ export function SideBar(props: { className?: string }) {
           KuzcoChat
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          The distributed GPU cluster for LLM inference on Solana(kuzco.xyz)
+          The distributed GPU cluster for LLM inference on Solana - kuzco.xyz
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />

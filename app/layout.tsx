@@ -12,7 +12,7 @@ const serverConfig = getServerSideConfig();
 export const metadata: Metadata = {
   title: "KuzcoChat",
   description:
-    "The distributed GPU cluster for LLM inference on Solana(kuzco.xyz)",
+    "The distributed GPU cluster for LLM inference on Solana - kuzco.xyz",
   viewport: {
     width: "device-width",
     initialScale: 1,
