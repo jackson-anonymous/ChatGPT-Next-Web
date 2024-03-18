@@ -80,7 +80,7 @@ export class ChatGPTApi implements LLMApi {
   }
 
   extractMessage(res: any) {
-    return res.choices?.at(0)?.message?.content ?? "";
+    return res.choices?.message?.content ?? "";
   }
 
   async chat(options: ChatOptions) {
