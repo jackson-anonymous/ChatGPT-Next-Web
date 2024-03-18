@@ -80,7 +80,7 @@ export class ChatGPTApi implements LLMApi {
   }
 
   extractMessage(res: any) {
-    return res.choices?.message?.content ?? "";
+    return res.choices?.at(0)?.message?.content ?? "";
   }
 
   async chat(options: ChatOptions) {
@@ -187,7 +187,10 @@ export class ChatGPTApi implements LLMApi {
               contentType,
             );
 
-            if (contentType?.startsWith("text/plain")) {
+            if (
+              contentType?.startsWith("text/plain") ||
+              contentType?.startsWith("application/json")
+            ) {
               responseText = await res.clone().text();
               return finish();
             }
